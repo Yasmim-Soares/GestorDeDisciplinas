@@ -1,18 +1,20 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Aluno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_aluno;
+
+    @ManyToOne
+    @JoinColumn(name = "id_disciplina")
+    private Disciplina disciplina;
 
     private String nome;
-    private String disciplina;
     private int faltas;
     private String justificativa;
 

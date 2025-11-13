@@ -1,17 +1,21 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.List;
 
 @Entity
+@Data
 public class Professor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_professor;
 
     private String nome;
-    private String disciplina;
     private String avisos;
+
+    @OneToMany(mappedBy = "id_professor")
+    private List<Disciplina> disiplinas;
+
 }

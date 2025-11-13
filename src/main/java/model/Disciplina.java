@@ -1,15 +1,26 @@
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jdk.jfr.Recording;
+import lombok.Data;
+
+import java.util.List;
 
 @Entity
+@Data
 public class Disciplina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id_disciplina;
 
     private String nome;
+
+    @OneToMany(mappedBy = "disciplina")
+    private List<Aluno> alunos;
+
+    @ManyToOne
+    @JoinColumn(name = "id_professor")
+    private Professor professor;
+
+
 }
