@@ -15,7 +15,7 @@ Projeto proposto na Fábrica de Software na faculdade, têm o propósito de trei
 
 ---
 
-## 🧭 Estrutura dos Exercícios
+## 🧭 Estrutura do Projeto
 
 Projeto está armazenado no caminho src/main/java.
 
