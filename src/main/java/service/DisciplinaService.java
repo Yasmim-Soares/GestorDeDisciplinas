@@ -1,0 +1,33 @@
+package service;
+
+import model.Disciplina;
+import org.springframework.stereotype.Service;
+import repository.DisciplinaRepository;
+
+import java.util.Optional;
+
+@Service
+public class DisciplinaService {
+    public final DisciplinaRepository disciplinaRepository;
+
+    public DisciplinaService(DisciplinaRepository disciplinaRepository) {
+        this.disciplinaRepository = disciplinaRepository;
+    }
+
+    public Disciplina salvarDisciplina(Disciplina disciplina){
+        return disciplinaRepository.save(disciplina);
+    }
+
+    public Optional<Disciplina> buscarDisciplina(Long id){
+        return disciplinaRepository.findById(id);
+    }
+
+    public Disciplina atualizarDisciplina(Long id, Disciplina disciplinaAtualizada){
+        disciplinaAtualizada.setId_disciplina(id);
+        return disciplinaRepository.save(disciplinaAtualizada);
+    }
+
+    public void deletarDisciplina(Long id){
+        disciplinaRepository.deleteById(id);
+    }
+}
