@@ -1,9 +1,9 @@
-package controller;
+package com.gestorDeDisciplinas.demo.controller;
 
-import model.Disciplina;
+import com.gestorDeDisciplinas.demo.model.Disciplina;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.DisciplinaService;
+import com.gestorDeDisciplinas.demo.service.DisciplinaService;
 
 import java.util.Optional;
 
@@ -21,17 +21,17 @@ public class DisciplinaController {
         return disciplinaService.salvarDisciplina(disciplina);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Optional<Disciplina> buscarDisciplina(@PathVariable Long id){
         return disciplinaService.buscarDisciplina(id);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Disciplina atualizarDisciplina(@PathVariable Long id, @RequestBody Disciplina disciplinaAtualizada){
         return disciplinaService.atualizarDisciplina(id, disciplinaAtualizada);
     }
 
-    @DeleteMapping("{id")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletarDisciplina(@PathVariable Long id){
         disciplinaService.deletarDisciplina(id);
         return ResponseEntity.noContent().build();

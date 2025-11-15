@@ -1,9 +1,9 @@
-package controller;
+package com.gestorDeDisciplinas.demo.controller;
 
-import model.Professor;
+import com.gestorDeDisciplinas.demo.model.Professor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.ProfessorService;
+import com.gestorDeDisciplinas.demo.service.ProfessorService;
 
 import java.util.Optional;
 
@@ -26,12 +26,12 @@ public class ProfessorController {
         return  professorService.buscarProfessorPorId(id);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Professor atualizarProfessor(@PathVariable Long id, @RequestBody Professor professorAtualizado){
         return professorService.atualizarProfessor(id, professorAtualizado);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> deletarProfessor(@PathVariable Long id){
         professorService.deletarProfessor(id);
         return ResponseEntity.noContent().build();

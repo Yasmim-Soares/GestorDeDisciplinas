@@ -1,7 +1,6 @@
-package model;
+package com.gestorDeDisciplinas.demo.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Recording;
 import lombok.Data;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class Disciplina {
     private List<Aluno> alunos;
 
     @ManyToOne
-    @JoinColumn(name = "id_professor")
+    @JoinColumn(name = "professor")
     private Professor professor;
 
 

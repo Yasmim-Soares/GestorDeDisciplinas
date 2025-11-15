@@ -1,8 +1,8 @@
-package service;
+package com.gestorDeDisciplinas.demo.service;
 
-import model.Professor;
+import com.gestorDeDisciplinas.demo.model.Professor;
 import org.springframework.stereotype.Service;
-import repository.ProfessorRepository;
+import com.gestorDeDisciplinas.demo.repository.ProfessorRepository;
 
 import java.util.Optional;
 

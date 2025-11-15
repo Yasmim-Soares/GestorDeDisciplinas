@@ -1,8 +1,8 @@
-package service;
+package com.gestorDeDisciplinas.demo.service;
 
-import model.Aluno;
+import com.gestorDeDisciplinas.demo.model.Aluno;
 import org.springframework.stereotype.Service;
-import repository.AlunoRepository;
+import com.gestorDeDisciplinas.demo.repository.AlunoRepository;
 
 import java.util.Optional;
 

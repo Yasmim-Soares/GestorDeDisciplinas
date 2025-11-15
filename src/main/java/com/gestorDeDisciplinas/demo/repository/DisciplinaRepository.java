@@ -1,6 +1,6 @@
-package repository;
+package com.gestorDeDisciplinas.demo.repository;
 
-import model.Disciplina;
+import com.gestorDeDisciplinas.demo.model.Disciplina;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DisciplinaRepository extends JpaRepository<Disciplina, Long> {

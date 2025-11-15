@@ -1,4 +1,4 @@
-package model;
+package com.gestorDeDisciplinas.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Data;

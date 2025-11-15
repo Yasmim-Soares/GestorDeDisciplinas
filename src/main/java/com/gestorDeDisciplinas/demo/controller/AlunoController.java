@@ -1,9 +1,9 @@
-package controller;
+package com.gestorDeDisciplinas.demo.controller;
 
-import model.Aluno;
+import com.gestorDeDisciplinas.demo.model.Aluno;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.AlunoService;
+import com.gestorDeDisciplinas.demo.service.AlunoService;
 
 import java.util.Optional;
 

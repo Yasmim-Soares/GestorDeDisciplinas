@@ -1,4 +1,4 @@
-package model;
+package com.gestorDeDisciplinas.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,7 +15,7 @@ public class Professor {
     private String nome;
     private String avisos;
 
-    @OneToMany(mappedBy = "id_professor")
-    private List<Disciplina> disiplinas;
+    @OneToMany(mappedBy = "professor")
+    private List<Disciplina> disciplinas;
 
 }

@@ -1,8 +1,8 @@
-package service;
+package com.gestorDeDisciplinas.demo.service;
 
-import model.Disciplina;
+import com.gestorDeDisciplinas.demo.model.Disciplina;
 import org.springframework.stereotype.Service;
-import repository.DisciplinaRepository;
+import com.gestorDeDisciplinas.demo.repository.DisciplinaRepository;
 
 import java.util.Optional;
 
