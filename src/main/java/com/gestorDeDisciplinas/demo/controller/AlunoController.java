@@ -1,6 +1,9 @@
 package com.gestorDeDisciplinas.demo.controller;
 
+import com.gestorDeDisciplinas.demo.dto.AlunoRequestDTO;
+import com.gestorDeDisciplinas.demo.dto.AlunoResponseDTO;
 import com.gestorDeDisciplinas.demo.model.Aluno;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.gestorDeDisciplinas.demo.service.AlunoService;
@@ -17,18 +20,18 @@ public class AlunoController {
     }
 
     @PostMapping
-    public Aluno salvarAluno(@RequestBody Aluno aluno){
-        return alunoService.salvarAluno(aluno);
+    public AlunoResponseDTO salvarAluno(@RequestBody @Valid AlunoRequestDTO dto){
+        return alunoService.salvarAluno(dto);
     }
 
     @GetMapping("/{id}")
-    public Optional<Aluno> buscarAlunoPorId(@PathVariable Long id){
+    public Optional<AlunoResponseDTO> buscarAlunoPorId(@PathVariable Long id){
         return alunoService.buscarAlunoPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Aluno atualizarAluno(@PathVariable Long id, @RequestBody Aluno alunoAtualizado){
-        return alunoService.atualizarAluno(id, alunoAtualizado);
+    public AlunoResponseDTO atualizarAluno(@PathVariable Long id, @RequestBody @Valid AlunoRequestDTO dto){
+        return alunoService.atualizarAluno(id, dto);
     }
 
     @DeleteMapping("/{id}")
