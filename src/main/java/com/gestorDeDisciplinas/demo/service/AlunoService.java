@@ -49,6 +49,8 @@ public class AlunoService {
 
         alunoExistente.setNome(dto.nome());
         alunoExistente.setDisciplina(disciplina);
+        alunoExistente.setFaltas(dto.faltas());
+        alunoExistente.setJustificativa(null);
 
         Aluno alunoAtualizado = alunoRepository.save(alunoExistente);
 

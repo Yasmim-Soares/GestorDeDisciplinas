@@ -14,10 +14,6 @@ public class DisciplinaService {
         this.disciplinaRepository = disciplinaRepository;
     }
 
-    public Disciplina salvarDisciplina(Disciplina disciplina){
-        return disciplinaRepository.save(disciplina);
-    }
-
     public Optional<Disciplina> buscarDisciplina(Long id){
         return disciplinaRepository.findById(id);
     }
@@ -27,7 +23,4 @@ public class DisciplinaService {
         return disciplinaRepository.save(disciplinaAtualizada);
     }
 
-    public void deletarDisciplina(Long id){
-        disciplinaRepository.deleteById(id);
-    }
 }

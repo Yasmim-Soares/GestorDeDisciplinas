@@ -10,5 +10,8 @@ public record AlunoRequestDTO(
 
     @NotBlank(message = "Nome deve ser preenchido")
     @Size(min = 3, message = "Nome deve ter no mínimo 3 caracteres")
-    String nome
+    String nome,
+
+    String justificativa,
+    int faltas
 ) {}

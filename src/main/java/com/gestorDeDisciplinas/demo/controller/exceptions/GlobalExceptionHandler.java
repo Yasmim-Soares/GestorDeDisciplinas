@@ -18,8 +18,7 @@ public class GlobalExceptionHandler {
         ErroResponseDTO erro = new ErroResponseDTO(
                 HttpStatus.NOT_FOUND.value(),
                 "Recurso não encontrado",
-                ex.getMessage()
-        );
+                ex.getMessage());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
     }
@@ -30,8 +29,7 @@ public class GlobalExceptionHandler {
                 .map(fieldError -> new ErroResponseDTO(
                 HttpStatus.BAD_REQUEST.value(),
                 "Erro de validação",
-                fieldError.getDefaultMessage()
-        ))
+                fieldError.getDefaultMessage()))
                 .toList();
 
         return ResponseEntity.badRequest().body(erros);

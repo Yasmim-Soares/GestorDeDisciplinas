@@ -11,11 +11,11 @@ public class Aluno {
     private Long id_aluno;
 
     @ManyToOne
-    @JoinColumn(name = "id_disciplina")
+    @JoinColumn(name = "disciplina")
     private Disciplina disciplina;
 
-    private String nome;
     private int faltas;
+    private String nome;
     private String justificativa;
 
 

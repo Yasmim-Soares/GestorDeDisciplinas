@@ -20,6 +20,4 @@ public class Disciplina {
     @ManyToOne
     @JoinColumn(name = "professor")
     private Professor professor;
-
-
 }
