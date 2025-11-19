@@ -2,11 +2,13 @@ package com.gestorDeDisciplinas.demo.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Data
+@Getter @Setter
 public class Disciplina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +17,7 @@ public class Disciplina {
     private String nome;
 
     @OneToMany(mappedBy = "disciplina")
-    private List<Aluno> alunos;
+    private List<Matricula> matriculas;
 
     @ManyToOne
     @JoinColumn(name = "professor")

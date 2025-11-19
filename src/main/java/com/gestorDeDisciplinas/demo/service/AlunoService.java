@@ -14,21 +14,15 @@ import java.util.Optional;
 @Service
 public class AlunoService {
     private final AlunoRepository alunoRepository;
-    private final DisciplinaRepository disciplinaRepository;
 
-    public AlunoService(AlunoRepository alunoRepository, DisciplinaRepository disciplinaRepository) {
+    public AlunoService(AlunoRepository alunoRepository) {
         this.alunoRepository = alunoRepository;
-        this.disciplinaRepository = disciplinaRepository;
     }
 
     public AlunoResponseDTO salvarAluno (AlunoRequestDTO dto) {
-        Disciplina disciplina = disciplinaRepository.findById(dto.id_disciplina())
-                .orElseThrow(() -> new EntityNotFoundException("Disciplina com ID " + dto.id_disciplina() + " não econtrada"));
 
         Aluno novoAluno = new Aluno();
         novoAluno.setNome(dto.nome());
-        novoAluno.setDisciplina(disciplina);
-        novoAluno.setFaltas(0);
         novoAluno.setJustificativa(null);
 
         Aluno alunoSalvo = alunoRepository.save(novoAluno);
@@ -44,12 +38,7 @@ public class AlunoService {
         Aluno alunoExistente = alunoRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Aluno com ID" + id + " não encontrado"));
 
-        Disciplina disciplina = disciplinaRepository.findById(dto.id_disciplina())
-                .orElseThrow(() -> new EntityNotFoundException("Disciplina com ID" + dto.id_disciplina() + " não encontrado"));
-
         alunoExistente.setNome(dto.nome());
-        alunoExistente.setDisciplina(disciplina);
-        alunoExistente.setFaltas(dto.faltas());
         alunoExistente.setJustificativa(null);
 
         Aluno alunoAtualizado = alunoRepository.save(alunoExistente);

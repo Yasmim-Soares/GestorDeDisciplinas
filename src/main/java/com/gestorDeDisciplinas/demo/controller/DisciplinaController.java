@@ -16,10 +16,6 @@ public class DisciplinaController {
         this.disciplinaService = disciplinaService;
     }
 
-    @PostMapping
-    public Disciplina salvarDisciplina(@RequestBody Disciplina disciplina){
-        return disciplinaService.salvarDisciplina(disciplina);
-    }
 
     @GetMapping("/{id}")
     public Optional<Disciplina> buscarDisciplina(@PathVariable Long id){
@@ -31,9 +27,4 @@ public class DisciplinaController {
         return disciplinaService.atualizarDisciplina(id, disciplinaAtualizada);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletarDisciplina(@PathVariable Long id){
-        disciplinaService.deletarDisciplina(id);
-        return ResponseEntity.noContent().build();
-    }
 }

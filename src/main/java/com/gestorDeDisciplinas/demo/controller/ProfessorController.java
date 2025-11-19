@@ -1,6 +1,9 @@
 package com.gestorDeDisciplinas.demo.controller;
 
+import com.gestorDeDisciplinas.demo.dto.ProfessorRequestDTO;
+import com.gestorDeDisciplinas.demo.dto.ProfessorResponseDTO;
 import com.gestorDeDisciplinas.demo.model.Professor;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.gestorDeDisciplinas.demo.service.ProfessorService;
@@ -17,18 +20,18 @@ public class ProfessorController {
     }
 
     @PostMapping
-    public Professor salvarProfessor(@RequestBody Professor professor){
-        return professorService.salvarProfessor(professor);
+    public ProfessorResponseDTO salvarProfessor(@RequestBody @Valid ProfessorRequestDTO dto){
+        return professorService.salvarProfessor(dto);
     }
 
     @GetMapping("/{id}")
-    public Optional<Professor> buscarProfessorPorId(@PathVariable Long id){
+    public Optional<ProfessorResponseDTO> buscarProfessorPorId(@PathVariable Long id){
         return  professorService.buscarProfessorPorId(id);
     }
 
     @PutMapping("/{id}")
-    public Professor atualizarProfessor(@PathVariable Long id, @RequestBody Professor professorAtualizado){
-        return professorService.atualizarProfessor(id, professorAtualizado);
+    public ProfessorResponseDTO atualizarProfessor(@PathVariable Long id, @RequestBody @Valid ProfessorRequestDTO dto){
+        return professorService.atualizarProfessor(id, dto);
     }
 
     @DeleteMapping("/{id}")
